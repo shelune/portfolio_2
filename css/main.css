@@ -10,6 +10,10 @@
    Base styles: opinionated defaults
    ========================================================================== */
 
+/*
+lightturquoise: rgb(96, 212, 214)
+
+*/
 @import 'fonts.css';
 
 html {
@@ -21,7 +25,7 @@ html {
     -webkit-font-smoothing: antialiased;
     -webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
- 	box-sizing: border-box;
+ 	  box-sizing: border-box;
 }
 
 /*
@@ -135,7 +139,6 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
 .main-title__content {
@@ -144,6 +147,60 @@ body {
 
 .typed-words {
     transition: all 0.4s ease;
+}
+
+.header__logo {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    z-index: 10;
+    margin-left: 2em;
+    transition: all 0.4s ease;
+}
+
+.header__logo path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+.header__logo:hover path {
+    animation: dashLine 1.75s cubic-bezier(.66,.01,.36,.98) alternate infinite;
+}
+
+.header__logo:hover {
+    transform: rotateY(180deg);
+}
+
+@keyframes dashLine {
+    from {
+        stroke-dashoffset: 1000;
+        fill: rgba(96, 212, 214, 1);
+    } to {
+        stroke-dashoffset: 0;
+        fill: rgba(96, 212, 214, 0);
+    }
+}
+
+.top-nav {
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.top-nav__items {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.75em;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 1em;
 }
 
 
