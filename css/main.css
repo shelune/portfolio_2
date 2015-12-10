@@ -90,6 +90,11 @@ fieldset {
     padding: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -128,7 +133,11 @@ body {
     background-size: cover;
     background-position: center;
     z-index: 1;
-    background-image: url(../img/animus.jpg);
+    background-image: url(../img/assassinscreed-2.jpg);
+}
+
+#canvas--animated {
+    filter: blur(0.5px);
 }
 
 .main-title {
@@ -143,31 +152,28 @@ body {
 
 .main-title__content {
     font-size: 4em;
-}
-
-.typed-words {
+    color: rgb(202, 33, 33);
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.85);
+    font-family: 'Neue Has Unica', sans-serif;
+    font-weight: lighter;
     transition: all 0.4s ease;
 }
 
-.header__logo {
-    width: 200px;
-    height: 200px;
-    position: absolute;
-    z-index: 10;
-    margin-left: 2em;
+li.featured {
     transition: all 0.4s ease;
+    cursor: pointer;
 }
 
-.header__logo path {
+.featured path {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
 }
 
-.header__logo:hover path {
+li.featured:hover path {
     animation: dashLine 1.75s cubic-bezier(.66,.01,.36,.98) alternate infinite;
 }
 
-.header__logo:hover {
+li.featured:hover {
     transform: rotateY(180deg);
 }
 
@@ -186,23 +192,206 @@ body {
     position: fixed;
     width: 100%;
     margin: 0 auto;
-    padding: 2em;
+    display: flex;
+    justify-content: center;
 }
 
 .top-nav__items {
     list-style: none;
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
+    flex: row nowrap;
+    justify-content: space-around;
     font-size: 1.75em;
+    width: 100%;
 }
 
-.top-nav a {
-    text-decoration: none;
-    color: #fff;
+.top-nav li {
     text-transform: uppercase;
-    margin: 1em;
+    margin-right: 2.5em;
+    position: relative;
 }
 
+.top-nav__items > li:first-child {
+    margin-right: auto;
+    width: 150px;
+}
+
+.nav-item {
+    padding: 0.5em 1.25em;
+    position: relative;
+    color: #000;
+    transition: color ease 0.25s;
+}
+
+.nav-item:hover {
+    color: #fff;
+}
+
+.nav-item::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    transition: height cubic-bezier(.58,.14,.32,.81) 0.25s;
+    z-index: -1;
+}
+
+.nav-item::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 100%;
+    background: transparent;
+    border-bottom: 3px solid rgb(202, 33, 33);
+    transition: width 0.25s 0.15s cubic-bezier(.58,.14,.32,.81);
+    top: 0;
+    left: 0;
+}
+
+.nav-item:hover::before {
+    height: 100%;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Section 1
+   ========================================================================== */
+
+.section {
+    height: 100vh;
+    position: relative;
+    background: #fff;
+}
+
+.section-title {
+    text-transform: uppercase;
+    font-size: 4em;
+    color: #000;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.section-1 .section-content {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+}
+
+.work {
+    overflow: hidden;
+    position: relative;
+    outline: none;
+    margin: 2em;
+}
+
+.work::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+.work:hover::before {
+    background: rgba(12, 12, 12, 0.75);
+}
+
+.work img {
+    width: 100%;
+    min-height: 100%;
+}
+
+.work figcaption::after, .work figcaption::before {
+    content: '';
+    position: absolute;
+    opacity: 0;
+}
+
+.work figcaption::after {
+    top: 50px;
+    right: 30px;
+    bottom: 50px;
+    left: 30px;
+    border-top: 1px solid rgb(202, 33, 33);
+    border-bottom: 1px solid rgb(202, 33, 33);
+    transform: scale(0, 1);
+    transform-origin: 0 0;
+    transition: all 0.3s cubic-bezier(.66,.01,.36,.98);
+}
+
+.work figcaption::before {
+    top: 30px;
+    right: 50px;
+    bottom: 30px;
+    left: 50px;
+    border-right: 1px solid rgb(202, 33, 33);
+    border-left: 1px solid rgb(202, 33, 33);
+    transform: scale(1, 0);
+    transform-origin: 100% 0;
+    transition: all 0.3s cubic-bezier(.66,.01,.36,.98);
+}
+
+.work:hover figcaption::after, .work:hover figcaption::before {
+    transform: scale(1);
+    opacity: 1;
+}
+
+
+.work__name {
+    font-family: 'Raleway', serif;
+    font-weight: lighter;
+    position: absolute;
+    color: #fff;
+    z-index: 10;
+    bottom: 0;;
+    left: 1em;
+    text-transform: uppercase;
+    font-size: 3em;
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(.66,.01,.36,.98);
+}
+
+.work:hover .work__name {
+    opacity: 1;
+    left: 0.75em;
+}
+
+.work p {
+    position: absolute;
+    color: #fff;
+    font-family: 'Raleway', serif;
+    font-size: 1.5em;
+}
+
+.description__time {
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+}
+
+.description__category {
+    right: 0.5em;
+    top: calc(25%);
+    text-transform: uppercase;
+}
+
+.description__client {
+    left: 1em;
+    bottom: calc(25% + 1em);
+    text-transform: uppercase;
+}
 
 
 

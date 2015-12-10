@@ -5,7 +5,7 @@
 
 var addHighlight = function (elem, highlighted) {
     if (highlighted) {
-        elem.css("background", "rgba(96, 212, 214, 0.7)");
+        elem.css("background", "rgba(255, 255, 255, 0.75)");
     } else {
         elem.css("background", "transparent");
     }
