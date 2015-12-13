@@ -5,7 +5,7 @@
 
 (function () {
     var typedWords =  $('.typed-words'),
-        typedWordsDesc = $('.typed-words--description');
+        typedWordsDesc = $('.typed-words--name');
     typedWordsDesc.customTyped({strings: ['', 'Where other men blindly follow the truth', 'Where other men are limited by morality of law']}, 1500, 100, false);
     typedWords.customTyped({strings: ['', 'Nothing is True', 'Everything is Permitted']}, 4000, 1600, true);
 
