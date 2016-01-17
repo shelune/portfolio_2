@@ -95,6 +95,11 @@ a {
     color: #fff;
 }
 
+ul {
+    list-style: none;
+    outline: none;
+}
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -151,12 +156,13 @@ body {
 }
 
 .main-title__content {
-    font-size: 4em;
+    font-size: 5em;
     color: rgb(202, 33, 33);
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.85);
-    font-family: 'Neue Has Unica', sans-serif;
+    font-family: 'Assassins', sans-serif;
     font-weight: lighter;
     transition: all 0.4s ease;
+    letter-spacing: -0.5px;
 }
 
 li.featured {
@@ -265,7 +271,7 @@ li.featured:hover {
    ========================================================================== */
 
 .section {
-    height: 100vh;
+    height: 100%;
     position: relative;
     background: #fff;
 }
@@ -345,7 +351,7 @@ li.featured:hover {
 }
 
 .work__name {
-    font-family: 'Raleway', serif;
+    font-family: 'Neue Has Unica', serif;
     font-weight: lighter;
     position: absolute;
     color: #fff;
@@ -358,6 +364,10 @@ li.featured:hover {
     opacity: 0;
     transition: all 0.35s cubic-bezier(.66,.01,.36,.98);
     margin: 0;
+}
+
+.october-beatz .work__name {
+    font-size: 2.5em;
 }
 
 .work:hover .work__name {
@@ -408,11 +418,99 @@ li.featured:hover {
     left: 1em;
 }
 
+/* ==========================================================================
+   Section 2
+   ========================================================================== */
 
+.skill-menu {
+    width: 300px;
+    height: 200px;
+    margin: 100px auto 100px;
+    position: relative;
+    -webkit-filter: url("../assets/filters.svg#goo");
+    filter: url('../assets/filters.svg#goo');
+    transform: translateZ(0);
+}
 
+.skill-menu__wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+}
 
+.skill-item__button,
+.skill-item-bounce,
+.menu-toggle {
+    background: #000;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin-left: -80px;
+    margin-top: -80px;
+    border: none;
+    outline: none;
+    position: relative;
+}
 
+.skill-item__button {
+    background: rgb(202, 33, 33);
+}
 
+.menu-toggle {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.menu-toggle-icon {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.skill-item__thumbnail {
+    max-width: 80px;
+}
+
+.skill-menu__items {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.skill-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+}
+
+.skill-item-bounce {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.skill-item__button {
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #ad4c4c;
+}
+
+.skill-item__button:hover {
+    color: #fff;
+}
 
 
 

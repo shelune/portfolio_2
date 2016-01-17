@@ -1,63 +1,69 @@
 var gulp = require('gulp'),
-    changed = require('gulp-changed'),
-    imagemin = require('gulp-imagemin'),
-    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
+    del = require('del'),
     autoprefix = require('gulp-autoprefixer'),
-    minifyCSS = require('gulp-minify-css'),
-    browserSync = require('browser-sync').create(),
-    minifyHTML = require('gulp-minify-html');
+    cssnano = require('gulp-cssnano'),
+    gulpIf = require('gulp-if'),
+    imagemin = require('gulp-imagemin'),
+    cache = require('gulp-cache'),
+    notify = require('gulp-notify'),
+    runSequence = require('run-sequence'),
+    useref = require('gulp-useref'),
+    browserSync = require('browser-sync');
 
-
-gulp.task('imagemin', function() {
-    var imgSrc = './img/**/*',
-        imgDst = './build/img';
-
-    gulp.src(imgSrc)
-        .pipe(changed(imgDst))
-        .pipe(imagemin())
-        .pipe(gulp.dest(imgDst));
+gulp.task('useref', function () {
+    return gulp.src('app/*.html')
+        .pipe(useref())
+        .pipe(gulpIf('*.js', uglify()))
+        .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulp.dest('build'))
+        .pipe(notify('Useref completed!'))
 });
 
-gulp.task('minifyHTML', function() {
-    var htmlSrc = './*.html',
-        htmlDst = './build';
-    gulp.src(htmlSrc)
-        .pipe(changed(htmlDst))
-        .pipe(minifyHTML())
-        .pipe(gulp.dest(htmlDst));
+gulp.task('images', function () {
+    var imgSrc = 'app/img/**/*.+(png|jpg|gif|svg)',
+        imgDst = 'build/img';
+    return gulp.src(imgSrc)
+        .pipe(cache(imagemin()))
+        .pipe(gulp.dest(imgDst))
 });
 
-gulp.task('scripts', function() {
-    gulp.src(['./js/**/*.js'])
-        .pipe(concat('main.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest('./build/js/'));
+gulp.task('fonts', function () {
+    var fontSrc = 'app/fonts/**/*',
+        fontDst = 'build/fonts';
+
+    return gulp.src(fontSrc)
+        .pipe(gulp.dest(fontDst))
 });
 
-gulp.task('styles', function () {
-    gulp.src(['./css/*.css'])
-        .pipe(concat('main.css'))
-        .pipe(autoprefix('last 2 versions'))
-        .pipe(minifyCSS())
-        .pipe(gulp.dest('./build/css/'));
+gulp.task('clean', function () {
+    return del.sync('build');
 });
 
-gulp.task('browser-sync', ['imagemin', 'minifyHTML', 'styles', 'scripts'], function () {
+gulp.task('browserSync', function () {
     var files = [
-        './*.html',
-        './css/*.css',
-        './js/**/*.js',
-        './img/**/*.{png, jpg}'
+        'app/**/*.html',
+        'app/css/**/*.css',
+        'app/js/**/*.js',
+        'app/images/**/'
     ];
-
-    browserSync.init(files, {
+    browserSync({
         server: {
-            baseDir: './'
-        }
-    });
-
-    gulp.watch(files, browserSync.reload());
+            baseDir: 'app'
+        },
+    })
 });
 
-gulp.task('default', ['imagemin', 'minifyHTML', 'styles', 'scripts']);
+gulp.task('watch', function () {
+    gulp.watch('app/*.html', browserSync.reload);
+    gulp.watch('app/css/**/*.css', browserSync.reload);
+    gulp.watch('app/js/**/*.js', browserSync.reload);
+});
+
+gulp.task('build', function () {
+    runSequence('clean', ['useref', 'images', 'fonts']);
+});
+
+gulp.task('default', function () {
+    runSequence(['browserSync', 'watch']);
+});

@@ -6,8 +6,8 @@
 (function () {
     var typedWords =  $('.typed-words'),
         typedWordsDesc = $('.typed-words--name');
-    typedWordsDesc.customTyped({strings: ['', 'Where other men blindly follow the truth', 'Where other men are limited by morality of law']}, 1500, 100, false);
-    typedWords.customTyped({strings: ['', 'Nothing is True', 'Everything is Permitted']}, 4000, 1600, true);
+    typedWordsDesc.customTyped({strings: ['', 'Where other men blindly follow the trutH', 'Where other men are limited by morality of laW']}, 1500, 100, false);
+    typedWords.customTyped({strings: ['', 'Nothing is truE', 'Everything is permitteD']}, 4000, 1600, true);
 
     var width, height, landingPage, canvas, ctx, points, target,
         animateHeader = true,
