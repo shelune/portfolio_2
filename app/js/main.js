@@ -192,4 +192,14 @@
         return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2);
     }
 
+    // adding class for decoration
+
+    $('.menu-toggle').click(function () {
+        if ($(this).hasClass('menu-toggle-active')) {
+            $(this).removeClass('menu-toggle-active');
+        } else {
+            $(this).addClass('menu-toggle-active');
+        }
+    });
+
 })();

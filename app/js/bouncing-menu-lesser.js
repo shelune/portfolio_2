@@ -1,31 +1,31 @@
 (function () {
-    var menuItemNumber = $('skills-known .skills-known .skill-item').length,
-        angle = 300,
+    var menuItemNumber = $('skills-learning .skills-learning .skill-item').length,
+        angle = 120,
         distance = 180,
-        startingAngle = 150 + (-angle / 2),
+        startingAngle = 60 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
 
         TweenMax.globalTimeScale(0.8);
-        $('.skills-known .skill-item').each(function (i) {
+        $('.skills-learning .skill-item').each(function (i) {
             var angle = startingAngle + (slice * i);
             $(this).css({
                 transform: "rotate("  + angle + "deg)"
             });
-            $(this).find('.skills-known .skill-item-icon').css({
+            $(this).find('.skills-learning .skill-item-icon').css({
                 transform: "rotate(" + (-angle) + "deg)"
             });
         });
 
         var on = false;
 
-        $('.skills-known + .menu-toggle').mousedown(function () {
-            TweenMax.to($('.skills-known + .menu-toggle-icon'), 0.1, {
+        $('.skills-learning + .menu-toggle').mousedown(function () {
+            TweenMax.to($('.skills-learning + .menu-toggle-icon'), 0.1, {
                 scale: 0.65
             });
         });
 
-        $('.skills-known + .menu-toggle').mouseup(function () {
-            TweenMax.to($('.skills-known + .menu-toggle-icon'), 0.1, {
+        $('.skills-learning + .menu-toggle').mouseup(function () {
+            TweenMax.to($('.skills-learning + .menu-toggle-icon'), 0.1, {
                 scale: 1
             });
         });
@@ -34,8 +34,8 @@
             $(document).trigger('mouseup');
         });
 
-        $('.skills-known + .menu-toggle').on('mousedown', pressHandler);
-        $('.skills-known + .menu-toggle').on('touchstart', function (event) {
+        $('.skills-learning + .menu-toggle').on('mousedown', pressHandler);
+        $('.skills-learning + .menu-toggle').on('touchstart', function (event) {
             $(this).trigger('mousedown');
             event.preventDefault();
             event.stopPropagation();
@@ -43,7 +43,7 @@
 
         function pressHandler(event) {
             on = !on;
-            TweenMax.to($(this).children('.skills-known + .menu-toggle-icon'), 0.4, {
+            TweenMax.to($(this).children('.skills-learning + .menu-toggle-icon'), 0.4, {
                 rotation: on ? 360 : 0,
                 ease: Quint.easeInOut,
                 force3D: true
@@ -53,10 +53,10 @@
         }
 
         function openMenu() {
-            $('.skills-known .skill-item').each(function (i) {
+            $('.skills-learning .skill-item').each(function (i) {
                 var delay = i * 0.08;
 
-                var $bounce = $(this).children('.skills-known .skill-item-bounce');
+                var $bounce = $(this).children('.skills-learning .skill-item-bounce');
 
                 TweenMax.fromTo($bounce, 0.2, {
                     transformOrigin: "50% 50%"
@@ -83,7 +83,7 @@
                     }
                 });
 
-                TweenMax.to($(this).children('.skills-known .skill-item__button'), 0.5, {
+                TweenMax.to($(this).children('.skills-learning .skill-item__button'), 0.5, {
                     delay: delay,
                     y: distance,
                     force3D: true,
@@ -93,10 +93,10 @@
         }
 
         function closeMenu() {
-            $('.skills-known .skill-item').each(function (i) {
+            $('.skills-learning .skill-item').each(function (i) {
                 var delay = i * 0.08;
 
-                var $bounce = $(this).children('.skills-known .skill-item-bounce');
+                var $bounce = $(this).children('.skills-learning .skill-item-bounce');
 
                 TweenMax.fromTo($bounce, 0.2, {
                     transformOrigin: "50% 50%"
@@ -123,7 +123,7 @@
                     }
                 });
 
-                TweenMax.to($(this).children('.skills-known .skill-item__button'), 0.3, {
+                TweenMax.to($(this).children('.skills-learning .skill-item__button'), 0.3, {
                     delay: delay,
                     y: 0,
                     force3D: true,
