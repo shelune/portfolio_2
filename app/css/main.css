@@ -226,7 +226,7 @@ li.featured:hover {
     background: transparent;
     padding-bottom: calc(2em - 4px);
     border-bottom: 3px solid rgb(255, 255, 255);
-    transition: width 0.25s 0.1s cubic-bezier(.15,.03,.08,.98);
+    transition: width 0.4s 0.1s cubic-bezier(.56,.34,.04,.4);
     top: 0;
     left: 0;
 }
