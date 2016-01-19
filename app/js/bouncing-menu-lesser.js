@@ -2,7 +2,7 @@
     var menuItemNumber = $('skills-learning .skills-learning .skill-item').length,
         angle = 120,
         distance = 180,
-        startingAngle = 60 + (-angle / 2),
+        startingAngle = 120 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
 
         TweenMax.globalTimeScale(0.8);
@@ -43,7 +43,7 @@
 
         function pressHandler(event) {
             on = !on;
-            TweenMax.to($(this).children('.skills-learning + .menu-toggle-icon'), 0.4, {
+            TweenMax.to($(this).children('.menu-toggle-icon'), 0.4, {
                 rotation: on ? 360 : 0,
                 ease: Quint.easeInOut,
                 force3D: true

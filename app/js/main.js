@@ -195,10 +195,15 @@
     // adding class for decoration
 
     $('.menu-toggle').click(function () {
-        if ($(this).hasClass('menu-toggle-active')) {
-            $(this).removeClass('menu-toggle-active');
+        var self = this;
+        if ($(self).hasClass('menu-toggle-active')) {
+            $(self).removeClass('menu-toggle-active');
+            setTimeout(function () {
+                $(self).closest('div').parents('.skill-menu').prev('.menu-title').removeClass('hidden');
+            }, 500);
         } else {
-            $(this).addClass('menu-toggle-active');
+            $(self).addClass('menu-toggle-active');
+            $(self).closest('div').parents('.skill-menu').prev('.menu-title').addClass('hidden');
         }
     });
 

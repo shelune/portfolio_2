@@ -43,7 +43,7 @@
 
         function pressHandler(event) {
             on = !on;
-            TweenMax.to($(this).children('.skills-known + .menu-toggle-icon'), 0.4, {
+            TweenMax.to($(this).children('.menu-toggle-icon'), 0.4, {
                 rotation: on ? 360 : 0,
                 ease: Quint.easeInOut,
                 force3D: true
