@@ -199,11 +199,15 @@
         if ($(self).hasClass('menu-toggle-active')) {
             $(self).removeClass('menu-toggle-active');
             setTimeout(function () {
-                $(self).closest('div').parents('.skill-menu').prev('.menu-title').removeClass('hidden');
-            }, 500);
+                $(self).find('.menu-toggle-icon').css('opacity', 0);
+                $(self).find('.menu-toggle__content').css('opacity', 1);
+            }, 350);
         } else {
             $(self).addClass('menu-toggle-active');
-            $(self).closest('div').parents('.skill-menu').prev('.menu-title').addClass('hidden');
+            setTimeout(function () {
+              $(self).find('.menu-toggle-icon').css('opacity', 1);
+              $(self).find('.menu-toggle__content').css('opacity', 0);
+            }, 350);
         }
     });
 

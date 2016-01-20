@@ -149,7 +149,7 @@ body {
 .section {
     height: 100%;
     position: relative;
-    background: rgb(112, 112, 112);
+    background: rgb(0, 0, 0);
     padding-top: 2em;
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 .main-title__content {
-    font-size: 5em;
+    font-size: 4em;
     color: rgb(202, 33, 33);
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.85);
     font-family: 'Assassins', sans-serif;
@@ -277,7 +277,7 @@ li.featured:hover {
 
 .top-nav li:hover::after {
     width: 0;
-    border-color: rgb(0, 0, 0);
+    border-color: rgb(15, 0, 0);
 }
 
 .top-nav__items > li:first-child {
@@ -302,7 +302,7 @@ li.featured:hover {
     height: 0;
     top: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(15, 0, 0, 0.75);
     transition: height cubic-bezier(.58,.14,.32,.81) 0.25s;
     z-index: -1;
 }
@@ -334,9 +334,10 @@ li.featured:hover {
 .section-title {
     text-transform: uppercase;
     font-size: 4em;
-    color: #000;
+    color: rgb(246, 223, 223);
     text-align: center;
-    margin-bottom: 1em;
+    margin-bottom: 32px;
+    font-family: "Montserrat", sans-serif;
 }
 
 .section-1 .section-content {
@@ -346,14 +347,17 @@ li.featured:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: rgb(112, 112, 112);
+    background: rgb(0, 0, 0);
 }
 
 .work {
     overflow: hidden;
     position: relative;
     outline: none;
-    margin: 2em;
+    margin: 16px;
+    color: #fff;
+    text-transform: uppercase;
+    overflow: hidden;
 }
 
 .work::before {
@@ -383,7 +387,7 @@ li.featured:hover {
 .work figcaption::after {
     width: 100%;
     height: 4.5em;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(15, 0, 0, 0.45);
     bottom: 0;
     left: 0;
 }
@@ -415,27 +419,15 @@ li.featured:hover {
     right: 0.25em;
     transform: translateY(50%);
     text-transform: uppercase;
-    font-size: 3em;
+    font-size: 3.5em;
     opacity: 0;
     transition: all 0.35s cubic-bezier(.66,.01,.36,.98);
     margin: 0;
 }
 
-.october-beatz .work__name {
-    font-size: 2.5em;
-}
-
 .work:hover .work__name {
     opacity: 1;
     transform: translateY(0);
-}
-
-.work {
-    color: #fff;
-    font-family: 'Raleway', serif;
-    font-size: 1.5em;
-    text-transform: uppercase;
-    overflow: hidden;
 }
 
 .work__description {
@@ -446,6 +438,7 @@ li.featured:hover {
     background: rgb(255, 255, 255);
     color: #000;
     padding: 0 0.2em;
+    font-size: 2em;
 }
 
 .description__time {
@@ -494,7 +487,7 @@ li.featured:hover {
 .menu-title {
     position: absolute;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(15, 0, 0, 0.75);
     padding: 0.5em 1em;
     border: 1px solid #000;
     border-radius: 3px;
@@ -535,25 +528,28 @@ li.featured:hover {
 }
 
 .skill-item-bounce {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(15, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .skill-item__button {
-    background: #fff;
-    border: 3px solid #000;
+    background: rgba(213, 177, 176, 0.8);
 }
 
 .menu-toggle {
     position: absolute;
     top: 0;
     left: 0;
-    background: rgb(33, 33, 33);
-
+    background: rgb(101, 0, 0);
     transition: border ease 0.3s;
 }
 
-.menu-toggle-active {
-
+.menu-toggle__content {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 }
 
 .menu-toggle-icon {
@@ -563,6 +559,7 @@ li.featured:hover {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 0;
 }
 
 .skill-item__thumbnail {
@@ -583,12 +580,6 @@ li.featured:hover {
     left: 0;
     width: 0;
     height: 0;
-}
-
-.skill-item-bounce {
-    position: absolute;
-    top: 0;
-    left: 0;
 }
 
 .skill-item__button {
