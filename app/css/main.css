@@ -149,7 +149,7 @@ body {
 .section {
     height: 100%;
     position: relative;
-    background: rgb(0, 0, 0);
+    background: rgb(246, 223, 223);
     padding-top: 2em;
 }
 
@@ -190,6 +190,10 @@ body {
     transition: all 0.4s ease;
     letter-spacing: -0.5px;
 }
+
+/* ==========================================================================
+   Navigation bar
+   ========================================================================== */
 
 li.featured {
     transition: all 0.4s ease;
@@ -242,6 +246,7 @@ li.featured:hover {
     text-transform: uppercase;
     margin-right: 2.5em;
     position: relative;
+    font-weight: bolder;
 }
 
 .top-nav li::before {
@@ -314,7 +319,7 @@ li.featured:hover {
     height: 100%;
     background: transparent;
     border-bottom: 3px solid rgb(202, 33, 33);
-    transition: width 0.3s 0.2s cubic-bezier(.15,.03,.08,.98);
+    transition: width 0.3s 0.2s cubic-bezier(0.73, 0.37, 0, 0.41);
     top: 0;
     left: 0;
 }
@@ -334,7 +339,7 @@ li.featured:hover {
 .section-title {
     text-transform: uppercase;
     font-size: 4em;
-    color: rgb(246, 223, 223);
+    color: rgb(101, 0, 0);
     text-align: center;
     margin-bottom: 32px;
     font-family: "Montserrat", sans-serif;
@@ -347,7 +352,7 @@ li.featured:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: rgb(0, 0, 0);
+    background: rgb(246, 223, 223);
 }
 
 .work {
@@ -507,6 +512,9 @@ li.featured:hover {
     transform: translateX(50%);;
 }
 
+/* ==========================================================================
+   Skill circular menu
+   ========================================================================== */
 
 .skill-menu__wrapper {
     position: absolute;
@@ -534,6 +542,30 @@ li.featured:hover {
     left: 0;
 }
 
+    /** Skill Progress Text **/
+
+.progress-tracker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+    color: rgb(101, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    transition: visibility ease 0.3s;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.skills-learning .progress-tracker {
+    color: #fff;
+    font-size: 1em;
+}
+
+.progress-tracker--on {
+    opacity: 1;
+}
+
 .skill-item__button {
     background: rgba(213, 177, 176, 0.8);
 }
@@ -542,14 +574,14 @@ li.featured:hover {
     position: absolute;
     top: 0;
     left: 0;
-    background: rgb(101, 0, 0);
-    transition: border ease 0.3s;
+    background: rgb(0, 0, 0);
 }
 
 .menu-toggle__content {
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
+  transition: opacity ease 0.3s;
 }
 
 .menu-toggle-icon {
@@ -560,10 +592,55 @@ li.featured:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
+    transition: opacity ease 0.3s;
 }
 
 .skill-item__thumbnail {
     max-width: 80px;
+
+}
+
+@keyframes pop-away {
+    0% {
+        transform: scale(1,1);
+    }
+    20% {
+        transform: scale(1.2);
+    }
+    50% {
+        transform: scale(0.8);
+    }
+    100% {
+        transform: scale(0, 0);
+    }
+}
+
+@keyframes pop-up {
+    0% {
+        opacity: 0;
+        transform: scale(0.1);
+    }
+    20% {
+        transform: scale(0.4);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+
+.pop-away {
+    animation: 0.3s pop-away cubic-bezier(.58,.14,.32,.81);
+    animation-fill-mode: forwards;
+}
+
+.pop-up {
+    animation: 0.3s pop-up cubic-bezier(.58,.14,.32,.81);
+    animation-delay: 0.1s;
+    animation-fill-mode: both;
 }
 
 .skill-menu__items {
@@ -594,6 +671,37 @@ li.featured:hover {
 
 .skill-item__button:hover {
     color: #fff;
+}
+
+    /** Learning Menu **/
+
+.skills-learning .skill-item__button::after {
+    position: absolute;
+    content: '';
+    height: 0;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: transparent;
+    transition: height 0.3s cubic-bezier(0.73, 0.37, 0, 0.41);
+}
+
+.skills-learning:hover .skill-item__button::after {
+    height: 100%;
+}
+
+.skill--after-effect:hover .skill-item__button::after {
+    background-image: repeating-linear-gradient(transparent, transparent 70%, rgb(101, 0, 0) 70.1%, rgb(101, 0, 0) 100%);
+}
+
+.skill--nodejs:hover .skill-item__button::after {
+    background-image: repeating-linear-gradient(transparent, transparent 55%, rgb(101, 0, 0) 55.1%, rgb(101, 0, 0) 100%);
+}
+
+.skill--angularjs:hover .skill-item__button::after {
+    background-image: repeating-linear-gradient(transparent, transparent 28%, rgb(101, 0, 0) 28.1%, rgb(101, 0, 0) 100%);
 }
 
 

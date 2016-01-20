@@ -1,5 +1,5 @@
 (function () {
-    var menuItemNumber = $('skills-known .skills-known .skill-item').length,
+    var menuItemNumber = $('.skills-known .skill-item').length,
         angle = 300,
         distance = 180,
         startingAngle = 150 + (-angle / 2),
@@ -8,11 +8,12 @@
         TweenMax.globalTimeScale(0.8);
         $('.skills-known .skill-item').each(function (i) {
             var angle = startingAngle + (slice * i);
+            console.log(angle);
             $(this).css({
                 transform: "rotate("  + angle + "deg)"
             });
-            $(this).find('.skills-known .skill-item-icon').css({
-                transform: "rotate(" + (-angle) + "deg)"
+            $(this).find('.progress-tracker').css({
+                transform: "translate(-50%, -50%) rotate(" + (-angle) + "deg)"
             });
         });
 
@@ -53,6 +54,7 @@
         }
 
         function openMenu() {
+            console.log(startingAngle + " ... " + slice);
             $('.skills-known .skill-item').each(function (i) {
                 var delay = i * 0.08;
 

@@ -11,8 +11,8 @@
             $(this).css({
                 transform: "rotate("  + angle + "deg)"
             });
-            $(this).find('.skills-learning .skill-item-icon').css({
-                transform: "rotate(" + (-angle) + "deg)"
+            $(this).find('.progress-tracker').css({
+                transform: "translate(-50%, -50%) rotate(" + (-angle) + "deg)"
             });
         });
 
