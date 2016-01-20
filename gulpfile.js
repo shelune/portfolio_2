@@ -9,6 +9,7 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     runSequence = require('run-sequence'),
     useref = require('gulp-useref'),
+    htmlmin = require('gulp-htmlmin'),
     browserSync = require('browser-sync');
 
 gulp.task('useref', function () {
@@ -16,21 +17,33 @@ gulp.task('useref', function () {
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest('build'))
         .pipe(notify('Useref completed!'))
 });
 
 gulp.task('images', function () {
-    var imgSrc = 'app/img/**/*.+(png|jpg|gif|svg)',
+    var imgSrc = 'app/img/**/*.{gif,jpg,png,svg}',
         imgDst = 'build/img';
     return gulp.src(imgSrc)
-        .pipe(cache(imagemin()))
+        .pipe(imagemin({
+            interlaced: true,
+            pngquant: true
+        }))
         .pipe(gulp.dest(imgDst))
 });
 
 gulp.task('fonts', function () {
     var fontSrc = 'app/fonts/**/*',
         fontDst = 'build/fonts';
+
+    return gulp.src(fontSrc)
+        .pipe(gulp.dest(fontDst))
+});
+
+gulp.task('assets', function () {
+    var fontSrc = 'app/assets/**',
+        fontDst = 'build/assets';
 
     return gulp.src(fontSrc)
         .pipe(gulp.dest(fontDst))
@@ -61,7 +74,7 @@ gulp.task('watch', function () {
 });
 
 gulp.task('build', function () {
-    runSequence('clean', ['useref', 'images', 'fonts']);
+    runSequence('clean', ['useref', 'images', 'fonts', 'assets']);
 });
 
 gulp.task('default', function () {
