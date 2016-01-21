@@ -704,6 +704,44 @@ li.featured:hover {
     background-image: repeating-linear-gradient(transparent, transparent 28%, rgb(101, 0, 0) 28.1%, rgb(101, 0, 0) 100%);
 }
 
+/* ==========================================================================
+   Gradient Progress Part
+   ========================================================================== */
+
+/* ==========================================================================
+  Section 3
+   ========================================================================== */
+
+.section-3 .section-content {
+
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar::after {
+  position: absolute;
+  content: '';
+  width: 1px;
+  height: calc(100% + 20px);
+  transform: translate(30px ,-10px);
+  background: #fff;
+}
+
+.info-list li:first-child {
+  font-size: 1.5em;
+}
+
+.avatar img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
 
 
 
