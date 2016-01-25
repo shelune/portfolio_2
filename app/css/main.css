@@ -182,7 +182,7 @@ body {
 
 .main-title__content {
     font-size: 4em;
-    color: rgb(202, 33, 33);
+    color: #000;
     text-shadow: 0 0 1px rgba(255, 255, 255, 0.85);
     font-family: 'Assassins', sans-serif;
     font-weight: lighter;
@@ -229,6 +229,14 @@ li.featured:hover {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+}
+
+.top-nav.top-nav--inverse {
+    background: #222;
+}
+
+.top-nav--inverse .nav-item {
+    color: #fff;
 }
 
 .top-nav__items {
@@ -716,19 +724,49 @@ li.featured:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.avatar {
   position: relative;
+  padding-bottom: 100px;
 }
 
 .avatar::after {
-  position: absolute;
-  content: '';
-  width: 1px;
-  height: calc(100% + 20px);
-  transform: translate(30px ,-10px);
-  background: rgb(101, 0, 0);
+    position: absolute;
+    content: '';
+    display: inline-block;
+    border-top: 10px solid #444;
+    border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+    top: 0;
+    left: 35%;
+    margin: -2px 0 0 45px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.15s ease;
+}
+
+.avatar::before {
+    position: absolute;
+    content: "I don't like taking pictures so here's one of my favourite characters";
+    left: 25%;
+    top: -40px;
+    padding: 8px 16px;
+    background: #444;
+    color: #fff;
+    border-radius: 0px;
+    transform: translateY(-10px);
+    opacity: 0;
+    transition: all 0.15s ease;
+}
+
+.avatar:hover::before, .avatar:hover::after {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.avatar img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: fill;
 }
 
 /*
@@ -759,7 +797,7 @@ li.featured:hover {
   top: 50%;
   left: 0;
   background: #000;
-  transition: all 0.3s 0.1s cubic-bezier(.58,.14,.32,.81);
+  transition: all 0.25s 0.1s cubic-bezier(.58,.14,.32,.81);
 }
 
 .list__text::after {
@@ -840,13 +878,6 @@ li.featured:hover {
 *  Personal Info Part Ends
 */
 
-.avatar img {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  object-fit: contain;
-}
-
 .modal-box__trigger {
   margin: 30px 0 0 20px;
   outline: none;
@@ -863,6 +894,55 @@ li.featured:hover {
   color: #fff;
 }
 
+/* ==========================================================================
+   Abstergo Logo
+   ========================================================================== */
+
+.abstergo-logo {
+    position: relative;
+    max-width: 120px;
+}
+
+
+
+
+
+/* ==========================================================================
+   Main Footer Section
+   ========================================================================== */
+
+.main-footer {
+    background: #111;
+    font-family: 'Montserrat', sans-serif;
+    padding: 32px 20px;
+}
+
+.footer-note {
+    text-align: center;
+    color: #fff;
+}
+
+.bottom-footer ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bottom-footer ul * {
+    transition: all 0.3s cubic-bezier(0.73, 0.37, 0, 0.41);
+}
+
+.facebook:hover {
+    color: rgb(59, 89, 152);
+}
+
+.github:hover {
+    color: rgb(88, 40, 121);
+}
+
+.linkedin:hover span {
+    color: rgb(2, 116, 179);
+}
 
 
 
