@@ -45,4 +45,19 @@
         }
     });
 
+    // inverse header Navigation
+
+    var windowHeight = window.innerHeight;
+
+    $(window).scroll(function () {
+      var currentY = window.pageYOffset || document.documentElement.scrollTop,
+          yLimit = windowHeight,
+          target = $('.top-nav');
+          if (currentY > yLimit) {
+            target.addClass('top-nav--inverse');
+          } else {
+            target.removeClass('top-nav--inverse');
+          }
+    });
+
 })();

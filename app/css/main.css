@@ -229,14 +229,37 @@ li.featured:hover {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    transition: background 0.3s ease;
 }
 
 .top-nav.top-nav--inverse {
-    background: #222;
+    background: rgba(15, 15, 15, 0.75);
+    height: 80px;
 }
 
 .top-nav--inverse .nav-item {
     color: #fff;
+}
+
+.top-nav--inverse li::after {
+  display: none;
+}
+
+.top-nav--inverse .nav-item::before {
+  display: none;
+}
+
+.top-nav.top-nav--inverse li::before {
+  padding-bottom: 0;
+  top: 0;
+  width: 50%;
+}
+
+.top-nav.top-nav--inverse .nav-item::after {
+  width: 50%;
+  right: 0;
+  top: -50%;
+  left: auto;
 }
 
 .top-nav__items {
@@ -704,7 +727,7 @@ li.featured:hover {
     background-image: repeating-linear-gradient(transparent, transparent 70%, rgb(101, 0, 0) 70.1%, rgb(101, 0, 0) 100%);
 }
 
-.skill--nodejs:hover .skill-item__button::after {
+.skill--sass:hover .skill-item__button::after {
     background-image: repeating-linear-gradient(transparent, transparent 55%, rgb(101, 0, 0) 55.1%, rgb(101, 0, 0) 100%);
 }
 
