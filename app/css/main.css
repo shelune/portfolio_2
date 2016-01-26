@@ -223,6 +223,7 @@ li.featured:hover {
 }
 
 .top-nav {
+    font-family: 'Montserrat', sans-serif;
     z-index: 2;
     position: fixed;
     width: 100%;
@@ -235,32 +236,53 @@ li.featured:hover {
 .top-nav.top-nav--inverse {
     background: rgba(15, 15, 15, 0.75);
     height: 80px;
+    transition: all ease 0.3s;
 }
 
-.top-nav--inverse .nav-item {
+.top-nav--inverse a {
     color: #fff;
 }
 
-.top-nav--inverse li::after {
-  display: none;
+.top-nav--inverse a:hover {
+    color: rgb(101, 0, 0);
 }
 
 .top-nav--inverse .nav-item::before {
-  display: none;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    transition: height cubic-bezier(.58,.14,.32,.81) 0.25s;
+    z-index: -1;
+}
+
+.top-nav--inverse .nav-item::after {
+    color: #fff;
+}
+
+.top-nav--inverse .nav-item::before {
+    /* background */
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.75);
+    transition: height cubic-bezier(.58,.14,.32,.81) 0.25s;
+    z-index: -1;
 }
 
 .top-nav.top-nav--inverse li::before {
-  padding-bottom: 0;
-  top: 0;
-  width: 50%;
+    border-bottom: 3px solid rgb(0, 0, 0);
 }
 
-.top-nav.top-nav--inverse .nav-item::after {
-  width: 50%;
-  right: 0;
-  top: -50%;
-  left: auto;
+.top-nav.top-nav--inverse li:hover:after {
+    border-color: rgb(255, 255, 255);
 }
+
 
 .top-nav__items {
     list-style: none;
@@ -276,16 +298,17 @@ li.featured:hover {
     text-transform: uppercase;
     margin-right: 2.5em;
     position: relative;
-    font-weight: bolder;
+    display: block;
 }
 
 .top-nav li::before {
+    /* bottom stripe for nav item */
     position: absolute;
     content: '';
     width: 0;
     height: 100%;
     background: transparent;
-    padding-bottom: calc(2em - 4px);
+    padding-bottom: calc(2em - 9px);
     border-bottom: 3px solid rgb(255, 255, 255);
     transition: width 0.4s 0.1s cubic-bezier(.56,.34,.04,.4);
     top: 0;
@@ -293,13 +316,14 @@ li.featured:hover {
 }
 
 .top-nav li::after {
+    /* afterstripe for nav item */
     position: absolute;
     content: '';
     width: 100%;
     height: 5px;
     z-index: -1;
     background: transparent;
-    padding-bottom: calc(2em - 4px);
+    padding-bottom: calc(2em - 9px);
     border-bottom: 3px solid transparent;
     transition: all 0.3s 0.4s cubic-bezier(.15,.03,.08,.98), border-color 0.4s 0.4s cubic-bezier(.15,.03,.08,.98);
     top: 0;
@@ -331,6 +355,7 @@ li.featured:hover {
 }
 
 .nav-item::before {
+    /* background for nav item */
     position: absolute;
     content: '';
     width: 100%;
@@ -343,13 +368,14 @@ li.featured:hover {
 }
 
 .nav-item::after {
+    /* top stripe for nav item */
     position: absolute;
     content: '';
     width: 0;
     height: 100%;
     background: transparent;
     border-bottom: 3px solid rgb(202, 33, 33);
-    transition: width 0.3s 0.2s cubic-bezier(0.73, 0.37, 0, 0.41);
+    transition: width 0.35s 0.2s cubic-bezier(0, 0, 0.2, 1);
     top: 0;
     left: 0;
 }
