@@ -60,4 +60,21 @@
           }
     });
 
+    $('.input__field').focus(function () {
+        $(this).closest('.input--custom').addClass('input--filled');
+    });
+
+    $('.input__field').blur(function () {
+        $(this).closest('.input--custom').removeClass('input--filled');
+    });
+
+    $('.modal-box__trigger').click(function (e) {
+        e.preventDefault();
+        $('.modal').addClass('overlay--triggered');
+    });
+
+    $('.close-button').click(function () {
+        $('.modal').removeClass('overlay--triggered');
+    });
+
 })();

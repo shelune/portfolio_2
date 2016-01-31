@@ -5,6 +5,10 @@
         startingAngle = 150 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
 
+        if ($(window).width() < 400) {
+            distance = 120;
+        }
+
         TweenMax.globalTimeScale(0.8);
         $('.skills-known .skill-item').each(function (i) {
             var angle = startingAngle + (slice * i);

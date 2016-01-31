@@ -42,7 +42,38 @@
                         <li><a class="nav-item" href="#">About</a></li>
                     </ul>
                 </nav>
-                <div class="overlay"></div>
+                <div class="modal modal--flip" data-form="email">
+                    <div class="modal-content" role="document" tabindex="-1">
+                        <h3>- Contact -</h3>
+                        <form action="" class="form--email" >
+                            <!-- <label for="username">Username</label> -->
+                            <br>
+                            <span class="input input--chisato">
+                                <input class="input__field input__field--chisato" type="email" id="email" placeholder="Email" required>
+                                <label for="Email" class="input__label input__label--chisato">
+                                    <span class="input__label__content input__label__content--chisato" data-content="Email">Email</span>
+                                </label>
+                            </span>
+                            <br>
+                            <!-- <label for="password">Password</label> -->
+                            <span class="input input--chisato">
+                                <input class="input__field input__field--chisato" type="text" id="subject" placeholder="Subject" required>
+                                <label for="subject" class="input__label input__label--chisato">
+                                    <span class="input__label__content input__label__content--chisato" data-content="Subject">Subject</span>
+                                </label>
+                            </span>
+                            <br>
+                            <span class="input">
+                                <textarea name="email-content" id="email-content" cols="40" rows="6" placeholder="Message"></textarea>
+                            </span>
+                                <button class="submit-button" type="submit">Send Message</button>
+                                <button type="button" class="close-button" id="modal-close" aria-label="close"><span>Close Form</span></button>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="modal-overlay"></div>
                 <button class="menu-toggle">
                     <div class="abstergo-logo">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -139,10 +170,6 @@
                 <div class="section section-2">
                     <h1 class="section-title">Technologies</h1>
                     <div class="section-content">
-                      <!--
-                        <div class="menu-title menu-title--know">
-                            <span class="menu-title__content">Things I know</span>
-                        </div> -->
                         <div class="skill-menu">
                             <div class="skill-menu__wrapper">
                                 <ul class="skill-menu__items skills-known">
@@ -195,10 +222,6 @@
                                 </button>
                             </div>
                         </div>
-                        <!--
-                        <div class="menu-title menu-title--studying">
-                            <span class="menu-title__content">Things I'm trying</span>
-                        </div> -->
                         <div class="skill-menu">
                             <div class="skill-menu__wrapper">
                                 <ul class="skill-menu__items skills-learning">
@@ -245,7 +268,7 @@
                         <li><span class="list__text text--job">Occupation: <span>Jr. Website Developer</span></span></li>
                         <li><span class="list__text text--char">Character: <span>Flexible, Focused, Fun</span></span></li>
                       </ul>
-                      <button class="modal-box__trigger">Say Hi!</button>
+                      <button class="modal-box__trigger"><a>Say Hi!</a></button>
 
                     </div>
                   </div>
@@ -286,5 +309,6 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-XXXXX-X','auto');ga('send','pageview');
         </script>
+
     </body>
 </html>
