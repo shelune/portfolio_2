@@ -5,7 +5,7 @@
         startingAngle = 120 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
 
-        if ($(window).width() < 400) {
+        if ($(window).width() < 500) {
             distance = 120;
         }
 

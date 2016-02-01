@@ -77,4 +77,8 @@
         $('.modal').removeClass('overlay--triggered');
     });
 
+    $('.nav-toggle').click(function () {
+        $('body').toggleClass('top-nav--triggered');
+    });
+
 })();
