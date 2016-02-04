@@ -107,10 +107,12 @@
     });
 
     $(document).scroll(function () {
-        displayWork('.cyan-3r');
-        displayWork('.sharimage');
-        displayWork('.october-beatz');
-        displayWork('.cssgram');
+        if ($(window).width() < 500) {
+            displayWork('.cyan-3r');
+            displayWork('.sharimage');
+            displayWork('.october-beatz');
+            displayWork('.cssgram');
+        }
     });
 
     function displayWork(className) {

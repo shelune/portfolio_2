@@ -723,7 +723,7 @@ body.form--trigger {
 }
 
 .skill--angularjs:hover .skill-item__button::after {
-    background-image: repeating-linear-gradient(transparent, transparent 28%, rgb(101, 0, 0) 28.1%, rgb(101, 0, 0) 100%);
+    background-image: repeating-linear-gradient(transparent, transparent 45%, rgb(101, 0, 0) 28.1%, rgb(101, 0, 0) 100%);
 }
 
 /* ==========================================================================
@@ -1169,6 +1169,9 @@ span.input {
 }
 
 @media only screen and (max-width: 500px) {
+    .section-3 {
+        padding-top: 80px;
+    }
 
     /* changing navigation bar */
     .top-nav {
@@ -1264,15 +1267,15 @@ span.input {
     .nav-item--small a::after {
         right: 0;
         bottom: 0;
-        transform: scale3d(1, 4, 1) translateY(50%);;
+        transform: scale3d(1, 4, 1) translateY(50%) translateZ(0);
     }
 
     .nav-item--small:hover a::before {
-        transform: scale3d(1, 0.65, 1);
+        transform: scale3d(1, 0.65, 1) translateZ(0);
     }
 
     .nav-item--small:hover a::after {
-        transform: scale3d(1, 1.45, 1);
+        transform: scale3d(1, 1.45, 1) translateZ(0);
     }
 
     /* specifically deal with navigation toggle */
@@ -1360,7 +1363,7 @@ span.input {
     /* Work */
 
     .work__description {
-        font-size: 1.25em;
+        font-size: 1.05em;
         margin-top: -2em;
     }
 
@@ -1373,7 +1376,7 @@ span.input {
     }
 
     .work__name {
-        font-size: 2.5em;
+        font-size: 2.05em;
     }
 
     .work figcaption::after {
