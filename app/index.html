@@ -16,8 +16,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/main.css">
         <!--endbuild-->
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -29,15 +28,16 @@
             <div class="content">
                 <nav class="top-nav">
                     <ul class="top-nav__items">
-                        <li><a class="nav-item" href="#">Work</a></li>
-                        <li><a class="nav-item" href="#">Skills</a></li>
-                        <li><a class="nav-item" href="#">About</a></li>
+                        <li><a href="#landing-page" class="nav-item">Logo</a></li>
+                        <li><a class="nav-item" href="#section-1">Work</a></li>
+                        <li><a class="nav-item" href="#section-2">Skills</a></li>
+                        <li><a class="nav-item" href="#section-3">About</a></li>
                     </ul>
                 </nav>
                 <div class="modal modal--flip" data-form="email">
                     <div class="modal-content" role="document" tabindex="-1">
                         <h3>- Contact -</h3>
-                        <form action="" class="form--email" >
+                        <form action="mailto:ai.hieunguyen@gmail.com" class="form--email" >
                             <!-- <label for="username">Username</label> -->
                             <br>
                             <span class="input input--chisato">
@@ -66,29 +66,30 @@
                 </div>
 
                 <div class="modal-overlay"></div>
-                <span class="nav-toggle">
-                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                           viewBox="5 5 595.3 841.9" enable-background="new 0 0 595.3 841.9" xml:space="preserve">
-                        <g>
-                          <g>
-                              <path fill="#fff" id="trape-left" fill-rule="evenodd" clip-rule="evenodd" d="M321.6,301.9c6.3,10.8,11.7,20.1,17.1,29.4c3.2,5.5,6.1,11,9.4,16.4
-                                  c1.7,2.7,1.8,5.1,0.2,7.9c-18.2,31.4-36.4,62.9-54.7,94.3c-1.1,1.8-3.6,3.9-5.5,3.9c-17,0.3-34,0.2-50.9,0.1
-                                  c-0.6,0-1.2-0.3-2.9-0.7C263.3,402.9,292.1,353,321.6,301.9z"/>
-                              <path fill="#fff" id="trape-bot" fill-rule="evenodd" clip-rule="evenodd" d="M343.1,515.6c-58.6,0-116.1,0-174.8,0c2.4-4.1,4.3-7.5,6.2-10.8
-                                  c6.5-11.4,13.2-22.7,19.6-34.1c1.7-3.1,3.8-4.5,7.5-4.5c36.1,0.1,72.2,0,108.4,0.2c2,0,5,1,5.9,2.4
-                                  C324.9,483.9,333.7,499.3,343.1,515.6z"/>
-                              <path fill="#fff" id="trape-right" fill-rule="evenodd" clip-rule="evenodd" d="M342.6,390.2c29.3,50.7,57.9,100.3,87.1,150.8c-2.8,0.3-4.3,0.6-5.9,0.6
-                                  c-15.5,0-31-0.1-46.5,0.1c-3.7,0-5.8-1.3-7.6-4.4c-17.9-31.2-36-62.4-53.8-93.7c-1-1.7-1.4-4.9-0.5-6.5
-                                  C324,422,332.9,407,342.6,390.2z"/>
-                          </g>
-                        </g>
-                        </svg>
-                </span>
+                <div class="nav-header">
+                    <span class="nav-toggle">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                               viewBox="0 0 595.3 841.9" enable-background="new 0 0 595.3 841.9" xml:space="preserve">
+                                      <g transform="translate(20, 10)">
+                                          <path fill="#fff" class="trape trape-left" fill-rule="evenodd" clip-rule="evenodd" d="M321.6,301.9c6.3,10.8,11.7,20.1,17.1,29.4c3.2,5.5,6.1,11,9.4,16.4
+                                              c1.7,2.7,1.8,5.1,0.2,7.9c-18.2,31.4-36.4,62.9-54.7,94.3c-1.1,1.8-3.6,3.9-5.5,3.9c-17,0.3-34,0.2-50.9,0.1
+                                              c-0.6,0-1.2-0.3-2.9-0.7C263.3,402.9,292.1,353,321.6,301.9z"/>
+                                          <path fill="#fff" class="trape trape-bot" fill-rule="evenodd" clip-rule="evenodd" d="M343.1,515.6c-58.6,0-116.1,0-174.8,0c2.4-4.1,4.3-7.5,6.2-10.8
+                                              c6.5-11.4,13.2-22.7,19.6-34.1c1.7-3.1,3.8-4.5,7.5-4.5c36.1,0.1,72.2,0,108.4,0.2c2,0,5,1,5.9,2.4
+                                              C324.9,483.9,333.7,499.3,343.1,515.6z"/>
+                                          <path fill="#fff" class="trape trape-right" fill-rule="evenodd" clip-rule="evenodd" d="M342.6,390.2c29.3,50.7,57.9,100.3,87.1,150.8c-2.8,0.3-4.3,0.6-5.9,0.6
+                                              c-15.5,0-31-0.1-46.5,0.1c-3.7,0-5.8-1.3-7.6-4.4c-17.9-31.2-36-62.4-53.8-93.7c-1-1.7-1.4-4.9-0.5-6.5
+                                              C324,422,332.9,407,342.6,390.2z"/>
+                                      </g>
+                            </svg>
+                    </span>
+                </div>
+
                 <nav class="top-nav--small">
                     <ul class="top-nav--small__items">
-                        <li class="nav-item--small work--small"><a href="#">Work</a></li>
-                        <li class="nav-item--small skill--small"><a href="#">Skills</a></li>
-                        <li class="nav-item--small about--small"><a href="#">About</a></li>
+                        <li class="nav-item--small work--small"><a href="#section-1">Work</a></li>
+                        <li class="nav-item--small skill--small"><a href="#section-2">Skills</a></li>
+                        <li class="nav-item--small about--small"><a href="#section-3">About</a></li>
                     </ul>
                 </nav>
                 <div class="landing-page" id="landing-page">
@@ -98,11 +99,11 @@
                         <h1 class="main-title__content typed-words"></h1>
                     </div>
                 </div>
-                <div class="section section-1">
+                <div class="section section-1" id="section-1">
                     <h1 class="section-title">Things I've done</h1>
                     <div class="section-content">
-                        <figure class="work cyan-3r">
-                            <img src="img/3r-thumb.png" alt="">
+                        <figure class="work cyan-3r" data-link="https://github.com/shelune/cyan_final_project">
+                            <img src="img/3r-thumb.png" alt="3r-thumbnail">
                             <figcaption>
                                 <h2 class="work__name">3R Bar</h2>
                                 <p class="work__description description__category">
@@ -116,7 +117,7 @@
                                 </p>
                             </figcaption>
                         </figure>
-                        <figure class="work sharimage">
+                        <figure class="work sharimage" data-link="https://github.com/shelune/image_sharing">
                             <img src="img/sharimage-thumb.png" alt="">
                             <figcaption>
                                 <h2 class="work__name">Sharimage</h2>
@@ -131,10 +132,10 @@
                                 </p>
                             </figcaption>
                         </figure>
-                        <figure class="work october-beatz">
+                        <figure class="work october-beatz" data-link="http://imgur.com/a/gFLCC">
                             <img src="img/october-beatz-thumb.png" alt="">
                             <figcaption>
-                                <h2 class="work__name">October#Beatz</h2>
+                                <a href="http://imgur.com/a/gFLCC"><h2 class="work__name">October#Beatz</h2></a>
                                 <p class="work__description description__category">
                                     Category/<span>Poster & Ticket</span>
                                 </p>
@@ -146,7 +147,7 @@
                                 </p>
                             </figcaption>
                         </figure>
-                        <figure class="work cssgram">
+                        <figure class="work cssgram" data-link="https://github.com/una/CSSgram">
                             <img src="img/cssgram-thumb.png" alt="">
                             <figcaption>
                                 <h2 class="work__name">Cssgram</h2>
@@ -163,7 +164,7 @@
                         </figure>
                     </div>
                 </div>
-                <div class="section section-2">
+                <div class="section section-2" id="section-2">
                     <h1 class="section-title">Technologies</h1>
                     <div class="section-content">
                         <div class="skill-menu">
@@ -251,11 +252,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="section section-3">
-                  <h1 class="section-title">About Me</h1>
+                <div class="section section-3" id="section-3">
+                  <h1 class="section-title">About me</h1>
                   <div class="section-content">
                     <figure class="avatar">
                       <img src="img/avatar.png" alt="" class="avatar--round">
+                      <a href="http://m.imgur.com/a/Q4d8K"><span>My Photoshop Collection</span></a>
                     </figure>
                     <div class="section-content__text">
                       <ul class="info-list">
@@ -264,7 +266,7 @@
                         <li><span class="list__text text--job">Occupation: <span>Jr. Website Developer</span></span></li>
                         <li><span class="list__text text--char">Character: <span>Flexible, Focused, Fun</span></span></li>
                       </ul>
-                      <button class="modal-box__trigger"><a>Say Hi!</a></button>
+                      <button class="form__trigger"><a>Say Hi!</a></button>
 
                     </div>
                   </div>
@@ -284,6 +286,7 @@
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
         <!-- build:js js/main.js -->
         <script src="js/customType.js"></script>
         <script src="js/TweenMax.min.js"></script>

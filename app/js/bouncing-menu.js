@@ -1,18 +1,17 @@
 (function () {
     var menuItemNumber = $('.skills-known .skill-item').length,
         angle = 300,
-        distance = 180,
+        distance = $(window).width() > 500 ? 180 : 120,
         startingAngle = 150 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
 
-        if ($(window).width() < 500) {
-            distance = 120;
-        }
+        $(window).resize(function () {
+            distance = $(window).width() > 500 ? 180 : 120;
+        });
 
         TweenMax.globalTimeScale(0.8);
         $('.skills-known .skill-item').each(function (i) {
             var angle = startingAngle + (slice * i);
-            console.log(angle);
             $(this).css({
                 transform: "rotate("  + angle + "deg)"
             });

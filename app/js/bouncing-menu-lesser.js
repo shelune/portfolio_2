@@ -1,13 +1,9 @@
 (function () {
     var menuItemNumber = $('skills-learning .skills-learning .skill-item').length,
         angle = 120,
-        distance = 180,
+        distance = $(window).width() > 500 ? 180 : 120,
         startingAngle = 120 + (-angle / 2),
         slice = angle / (menuItemNumber - 1);
-
-        if ($(window).width() < 500) {
-            distance = 120;
-        }
 
         TweenMax.globalTimeScale(0.8);
         $('.skills-learning .skill-item').each(function (i) {

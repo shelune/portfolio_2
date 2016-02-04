@@ -17,6 +17,7 @@ gulp.task('useref', function () {
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
         .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulpIf('*.css', autoprefix({browsers: ['last 2 versions']})))
         .pipe(gulpIf('*.html', htmlmin({collapseWhitespace: true})))
         .pipe(gulp.dest('build'))
         .pipe(notify('Useref completed!'))
@@ -27,6 +28,7 @@ gulp.task('images', function () {
         imgDst = 'build/img';
     return gulp.src(imgSrc)
         .pipe(imagemin({
+            optimizationLevel: 5,
             interlaced: true,
             pngquant: true
         }))
