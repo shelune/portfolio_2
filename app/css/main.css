@@ -154,7 +154,7 @@ body {
     transition: all cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.3s; */
     /* for global transition but turned off for now */
     font-family: 'Assassins', sans-serif;
-    letter-spacing: 0.35px;
+    letter-spacing: -0.35px;
 }
 
 body.form--trigger {
@@ -198,10 +198,8 @@ body.form--trigger {
     font-size: 4em;
     color: #000;
     text-shadow: 0 0 1px rgba(252, 255, 245, 0.85);
-    font-family: 'Assassins', sans-serif;
     font-weight: lighter;
     transition: all 0.4s ease;
-    letter-spacing: -0.5px;
 }
 
 .typed-words {
@@ -330,7 +328,7 @@ body.form--trigger {
 }
 
 .top-nav li:hover::before {
-    transform: scale3d(1, 1, 1);
+    transform: scale3d(1.005, 1, 1);
     opacity: 1;
 }
 
@@ -357,11 +355,7 @@ body.form--trigger {
 
 }
 
-.nav-item:hover::before {
-    transform: scale3d(1, 1, 1);
-}
-
-.nav-item:hover::after {
+.nav-item:hover::before, .nav-item:hover::after {
     transform: scale3d(1, 1, 1);
 }
 
@@ -394,7 +388,6 @@ body.form--trigger {
     margin: 16px;
     color: rgb(252, 255, 245);
     text-transform: uppercase;
-    overflow: hidden;
     cursor: pointer;
 }
 
@@ -483,7 +476,7 @@ body.form--trigger {
 .work__description span {
     text-transform: none;
     color: rgb(202, 33, 33);
-    font-size: 85%;
+    font-size: 0.85em;
 }
 
 .work:hover .work__description {
@@ -507,29 +500,6 @@ body.form--trigger {
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
-}
-
-.menu-title {
-    position: absolute;
-    z-index: 2;
-    background: rgba(15, 0, 0, 0.75);
-    padding: 0.5em 1em;
-    border: 1px solid #000;
-    border-radius: 3px;
-}
-
-.menu-title span {
-    color: rgb(252, 255, 245);
-}
-
-.menu-title--know {
-    left: 25%;
-    transform: translateX(-50%);
-}
-
-.menu-title--studying {
-    right: 25%;
-    transform: translateX(50%);;
 }
 
 /* ==========================================================================
@@ -619,12 +589,11 @@ body.form--trigger {
 
 .skill-item__thumbnail {
     max-width: 80px;
-
 }
 
 @keyframes pop-away {
     0% {
-        transform: scale(1,1);
+        transform: scale(1, 1);
     }
     20% {
         transform: scale(1.2);
@@ -967,7 +936,6 @@ body.form--trigger {
 }
 
 .modal--flip .modal-content {
-    transform-style: preserve-3d;
     transform: scale(0.8);
     transition: all 0.3s ease;
     opacity: 0;
@@ -1151,6 +1119,12 @@ span.input {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+@media only screen and (max-width: 1440px) {
+    .modal-content form {
+        font-size: 1.05em;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .skill-menu {
         flex-basis: 100%;
