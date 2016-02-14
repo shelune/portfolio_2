@@ -157,7 +157,7 @@ body {
     letter-spacing: -0.35px;
 }
 
-body.form--trigger {
+body.body--overlay {
     overflow: hidden;
 }
 
@@ -888,7 +888,7 @@ body.form--trigger {
    Modal Box and Overlay
    ========================================================================== */
 
-.modal.overlay--triggered, .form--trigger .modal {
+.modal.modal--on {
     visibility: visible;
 }
 
@@ -907,12 +907,12 @@ body.form--trigger {
     transition: all 0.3s ease;
 }
 
-.overlay--triggered ~ .modal-overlay {
+.modal--on ~ .modal-overlay {
     opacity: 1;
     visibility: visible;
 }
 
-.form--trigger .modal-overlay {
+.body--overlay .modal-overlay {
     opacity: 1;
     visibility: visible;
 }
@@ -941,7 +941,7 @@ body.form--trigger {
     opacity: 0;
 }
 
-.form--trigger .modal-content {
+.modal--on .modal-content {
     transform: scale(1);
     opacity: 1;
 }

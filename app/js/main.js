@@ -57,15 +57,11 @@
     });
 
     // trigger form overlay - activate
-    $('.modal-box__trigger').click(function (e) {
-        e.preventDefault();
-        $('.modal').addClass('overlay--triggered');
-    });
 
     // trigger form overlay - remove
     $('.close-button').click(function () {
-        $('.modal').removeClass('overlay--triggered');
-        $('body').removeClass('form--trigger');
+        $('.modal').removeClass('modal--on');
+        $('body').removeClass('body--overlay');
     });
 
     // trigger nav on phone
@@ -74,7 +70,8 @@
     });
 
     $('.form__trigger').click(function () {
-        $('body').toggleClass('form--trigger');
+        $('body').toggleClass('body--overlay');
+        $('.modal[data-content="email"]').addClass('modal--on');
     });
 
     // smooth scrolling on top nav bar
@@ -88,7 +85,7 @@
 
     $('.work').click(function () {
         var dataLink = $(this).attr('data-link');
-        window.open(dataLink, '_blank');
+        window.open(dataLink, '_self');
     });
 
     $('.top-nav--small a').click(function(e) {
