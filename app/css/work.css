@@ -15,23 +15,30 @@
 
 .work__view {
     display: flex;
-    margin-top: 64px;
+    margin-top: 32px;
+}
+
+.work__view img {
+    height: 320px;
+    object-fit: contain;
+    transition: all 0.3s ease;
 }
 
 .view--right img {
-    flex-basis: 65%;
+    flex-basis: 60%;
 }
 
 .view__intro {
-    flex: 35%;
+    flex: 40%;
+    padding: 0 16px;
 }
 
 .view--right .view__intro {
-    margin-left: 64px;
+    margin-left: 24px;
 }
 
 .view--left .view__intro {
-    margin-right: 64px;
+    margin-right: 24px;
 }
 
 .work__details {
@@ -50,9 +57,4 @@
     height: 320px;
     object-fit: cover;
     order: 2;
-}
-
-.sub-section-3 img {
-    height: 50%;
-    object-fit: fill;
 }
