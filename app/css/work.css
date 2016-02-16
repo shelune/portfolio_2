@@ -16,16 +16,15 @@
 .work__view {
     display: flex;
     margin-top: 32px;
+    flex-flow: row nowrap;
 }
 
 .work__view img {
     height: 320px;
     object-fit: contain;
     transition: all 0.3s ease;
-}
-
-.view--right img {
     flex-basis: 60%;
+    max-width: 100%;
 }
 
 .view__intro {
@@ -39,6 +38,11 @@
 
 .view--left .view__intro {
     margin-right: 24px;
+    text-align: right;
+}
+
+.view--left img {
+    order: 2;
 }
 
 .work__details {
@@ -49,12 +53,49 @@
     color: #fff;
     padding: 8px 16px;
     background-color: #000;
+    transition: background-color 0.3s ease;
 }
 
-/* Desktop overview */
+.work__link:hover {
+    background-color: #650000;
+}
 
-.sub-section-2 img {
-    height: 320px;
-    object-fit: cover;
-    order: 2;
+@media only screen and (max-width: 980px) {
+    .work__view {
+        flex-wrap: wrap;
+    }
+
+    .view--left img {
+        order: 0;
+    }
+
+    .work__view img {
+        flex-basis: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .sub-section {
+        width: 100%;
+        padding: 16px 0;
+    }
+
+    .work__view {
+        flex-flow: column wrap;q
+    }
+
+    .work__view img {
+        flex-basis: 100%;
+    }
+
+    .view__intro.view__intro {
+        flex: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    .view--left img {
+        order: 0;
+    }
 }
